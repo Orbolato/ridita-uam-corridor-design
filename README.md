@@ -20,11 +20,11 @@ The supporting software is the **SIGMA-Sky UAM Airspace Dashboard**. It remains 
 
 **Data restrictions:** The dashboard and derived airspace / airport-flow-envelope files are public. Frozen UAM scenario CSVs are available on request. Raw Flightradar24 trajectories are licensed and are not redistributed.
 
-## Local files to add
+## Paper and presentation
 
-The original project package contains `paper.pdf`, `slides.pdf`, and figure / logo assets. These binary attachments must be uploaded through GitHub's **Add file → Upload files** interface if not already present. The webpage is functional without them, and its publication metadata will not point to a missing PDF.
-
-After uploading PDFs, update the landing-page links if desired. You may copy them from the project package prepared in ChatGPT.
+- [Conference manuscript (PDF)](paper.pdf)
+- [Conference presentation (PDF)](slides.pdf)
+- Official RIDITA, LABGETA and ITA logos are stored in `assets/`.
 
 ## GitHub Pages
 
