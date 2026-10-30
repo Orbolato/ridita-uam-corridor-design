@@ -23,7 +23,7 @@
 .kicker{display:inline-block;border:1px solid #ffffff58;border-radius:99px;padding:6px 11px;background:#ffffff15;font-size:.82rem;font-weight:750;margin-bottom:20px}
 h1{font-size:clamp(2rem,4.4vw,3.75rem);letter-spacing:-.045em;line-height:1.12;max-width:1010px;margin:0 0 18px}.authors{font-size:1.06rem;font-weight:750;margin:0 0 4px}.affil{opacity:.86;margin:0 0 24px}
 .takeaway{max-width:940px;background:#ffffff18;border-left:4px solid white;padding:16px 19px;border-radius:0 10px 10px 0;font-size:1.06rem;font-weight:650}
-.actions,.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:23px}.btn{display:inline-flex;min-height:43px;padding:0 16px;align-items:center;justify-content:center;border-radius:10px;text-decoration:none;font-weight:750;border:1px solid #d7e4ea;background:#fff;color:var(--blue)}.btn.secondary{background:transparent;color:#fff;border-color:#ffffff6c}.btn.soft{background:var(--soft)}
+.actions,.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:23px}.btn{display:inline-flex;min-height:43px;padding:0 16px;align-items:center;justify-content:center;border-radius:10px;text-decoration:none;font-weight:750;border:1px solid #d7e4ea;background:#fff;color:var(--blue)}.btn.secondary{background:transparent;color:#fff;border-color:#ffffff6c}.btn.soft{background:var(--soft)}[hidden]{display:none!important}
 main{padding:29px 0 65px}.card{border-radius:19px;border:1px solid var(--line);background:#fff;box-shadow:var(--shadow);padding:clamp(22px,3vw,34px)}.section{margin-top:24px}
 h2{font-size:1.55rem;letter-spacing:-.025em;color:var(--blue);margin:0 0 14px}h3{font-size:1.05rem;color:var(--blue);margin:0 0 7px}p{margin:0 0 13px}p:last-child{margin:0}
 .metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:19px}.metric{padding:17px;border:1px solid #cfe2e9;background:linear-gradient(#f8fcfd,#eef7fa);border-radius:15px;min-height:112px}.metric strong{display:block;font-size:1.68rem;color:var(--blue);line-height:1.1;margin-bottom:9px}.metric span,.small{font-size:.9rem;color:var(--muted)}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}.point{margin-bottom:14px}.point:last-child{margin:0}
@@ -42,6 +42,8 @@ footer{border-top:1px solid var(--line);padding:27px 0 40px;color:var(--muted);f
 <a class="btn" href="https://projetosigmasky.github.io/uam_airspace/" target="_blank" rel="noopener noreferrer">Open UAM dashboard</a>
 <a class="btn secondary" href="https://github.com/projetosigmasky/uam_airspace/releases/tag/ridita-2026.2" target="_blank" rel="noopener noreferrer">Software release</a>
 <a class="btn secondary" href="https://github.com/projetosigmasky/uam_airspace/tree/main/ridita2026" target="_blank" rel="noopener noreferrer">Verification scripts</a>
+<a class="btn secondary" href="paper.pdf" data-local-pdf hidden target="_blank" rel="noopener">Read paper (PDF)</a>
+<a class="btn secondary" href="slides.pdf" data-local-pdf hidden target="_blank" rel="noopener">Presentation (PDF)</a>
 <a class="btn secondary" href="mailto:orbolatoloc@fab.mil.br?subject=RIDITA%202026%20UAM%20corridor%20paper">Contact author</a>
 </div></div></header>
 <main><div class="wrap">
@@ -94,4 +96,10 @@ footer{border-top:1px solid var(--line);padding:27px 0 40px;color:var(--muted);f
 }</div><p class="small">The site describes a preliminary strategic design and does not claim operational certification.</p>
 </section></div></main>
 <footer><div class="wrap"><p>SIGMA-Sky Project (TED No. 1525720240005-003882/2024, SAC–ITA). Thanks to DECEA, ANAC and Flightradar24 for data.</p><p><a href="https://orbolato.github.io/">Author homepage</a> · <a href="https://orbolato.github.io/publications/">Publications</a> · <a href="https://projetosigmasky.github.io/uam_airspace/">UAM Airspace Dashboard</a></p></div></footer>
-</body></html>
+<script>
+for (const link of document.querySelectorAll('[data-local-pdf]')) {
+  fetch(link.getAttribute('href'), {method:'HEAD'})
+    .then(response => { if (response.ok) link.hidden = false; })
+    .catch(() => {});
+}
+</script></body></html>
