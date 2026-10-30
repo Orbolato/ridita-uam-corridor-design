@@ -1,0 +1,43 @@
+name: Import RIDITA and institutional logos
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/import-logos.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  import-logos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download official logos
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p assets
+          curl --fail --location --retry 3 --silent --show-error "https://xcongresointernacionalridita.ing.unlp.edu.ar/Logo-RIDITA.png" -o assets/ridita-logo.png
+          curl --fail --location --retry 3 --silent --show-error "https://raw.githubusercontent.com/Orbolato/Strategic-DCB-RL/main/assets/labgeta-logo.png" -o assets/labgeta-logo.png
+          curl --fail --location --retry 3 --silent --show-error "https://raw.githubusercontent.com/Orbolato/Strategic-DCB-RL/main/assets/ita-logo.png" -o assets/ita-logo.png
+          python3 - <<'PY'
+          from pathlib import Path
+          for name in ("ridita-logo.png", "labgeta-logo.png", "ita-logo.png"):
+              data = (Path("assets") / name).read_bytes()
+              if len(data) < 1000 or data[:8] != b"\x89PNG\r\n\x1a\n":
+                  raise SystemExit(f"Invalid PNG: {name}")
+              print(name, len(data), "bytes")
+          PY
+      - name: Commit logos into this repository
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/ridita-logo.png assets/labgeta-logo.png assets/ita-logo.png
+          if ! git diff --cached --quiet; then
+            git commit -m "Vendor RIDITA, LABGETA and ITA logo assets"
+            git push
+          fi
