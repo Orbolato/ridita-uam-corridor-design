@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="RIDITA 2026 paper on dedicated UAM corridor design in São Paulo, including the SIGMA-Sky interactive airspace dashboard and verification results.">
+<meta name="theme-color" content="#075985"><meta name="robots" content="index,follow,max-image-preview:large">
+<title>A methodological procedure and supporting tool for dedicated urban air mobility corridor design in the São Paulo metropolitan region · RIDITA 2026</title><link rel="canonical" href="https://orbolato.github.io/ridita-uam-corridor-design/">
+<meta property="og:type" content="article"><meta property="og:title" content="A methodological procedure and supporting tool for dedicated urban air mobility corridor design in the São Paulo metropolitan region"><meta property="og:url" content="https://orbolato.github.io/ridita-uam-corridor-design/">
+<meta property="og:description" content="Reproducible design and verification of UAM corridors in São Paulo. Connect to the UAM Airspace Dashboard, published results and scripts.">
+<meta name="citation_title" content="A methodological procedure and supporting tool for dedicated urban air mobility corridor design in the São Paulo metropolitan region">
+<meta name="citation_author" content="Lucas Orbolato Carvalho">
+<meta name="citation_author" content="Jaqueline Fonseca Rodrigues">
+<meta name="citation_author" content="Mayara Condé Rocha Murça">
+<meta name="citation_author" content="Daniel Alberto Pamplona">
+<meta name="citation_author" content="Marcelo Xavier Guterres">
+<meta name="citation_conference_title" content="X Congreso Internacional de la RIDITA"><meta name="citation_language" content="en"><meta name="citation_abstract_html_url" content="https://orbolato.github.io/ridita-uam-corridor-design/">
+<meta name="DC.Title" content="A methodological procedure and supporting tool for dedicated urban air mobility corridor design in the São Paulo metropolitan region"><meta name="DC.Date" content="2026"><meta name="DC.Type" content="Text.ConferencePaper">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"A methodological procedure and supporting tool for dedicated urban air mobility corridor design in the São Paulo metropolitan region","dateCreated":"2026","inLanguage":"en","url":"https://orbolato.github.io/ridita-uam-corridor-design/","codeRepository":"https://github.com/projetosigmasky/uam_airspace","isPartOf":{"@type":"PublicationEvent","name":"X Congreso Internacional de la RIDITA","location":"La Plata, Argentina","startDate":"2026-11-16","endDate":"2026-11-18"},"author":[{"@type":"Person","name":"Lucas Orbolato Carvalho","url":"https://orbolato.github.io/","sameAs":["https://orcid.org/0000-0002-8402-5832"]},{"@type":"Person","name":"Jaqueline Fonseca Rodrigues"},{"@type":"Person","name":"Mayara Condé Rocha Murça"},{"@type":"Person","name":"Daniel Alberto Pamplona"},{"@type":"Person","name":"Marcelo Xavier Guterres"}],"keywords":["urban air mobility","corridor design","airspace management","eVTOL","geospatial dashboard"]}</script>
+<style>
+:root{--blue:#075985;--ink:#14212b;--muted:#5f6f7b;--line:#d7e4ea;--soft:#eef7fa;--shadow:0 12px 30px rgba(10,52,72,.10)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f8fbfc;color:var(--ink);font:16px/1.56 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}a{color:var(--blue)}
+.wrap{width:min(1120px,calc(100% - 36px));margin:auto}
+.hero{background:radial-gradient(circle at 88% 8%,#ffffff18,transparent 25rem),linear-gradient(135deg,#064d72,#075985 50%,#0a7595);color:#fff;padding:52px 0 45px}
+.hero .wrap{position:relative}.logos{position:absolute;top:0;right:0;display:flex;gap:10px;align-items:center;border:1px solid #ffffff35;border-radius:14px;background:#ffffff16;padding:7px 12px}.logos img{object-fit:contain;width:auto;display:block}.logos .ridita{height:53px}.logos .lab{height:40px}.logos .ita{height:34px}
+.kicker{display:inline-block;border:1px solid #ffffff58;border-radius:99px;padding:6px 11px;background:#ffffff15;font-size:.82rem;font-weight:750;margin-bottom:20px}
+h1{font-size:clamp(2rem,4.4vw,3.75rem);letter-spacing:-.045em;line-height:1.12;max-width:1010px;margin:0 0 18px}.authors{font-size:1.06rem;font-weight:750;margin:0 0 4px}.affil{opacity:.86;margin:0 0 24px}
+.takeaway{max-width:940px;background:#ffffff18;border-left:4px solid white;padding:16px 19px;border-radius:0 10px 10px 0;font-size:1.06rem;font-weight:650}
+.actions,.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:23px}.btn{display:inline-flex;min-height:43px;padding:0 16px;align-items:center;justify-content:center;border-radius:10px;text-decoration:none;font-weight:750;border:1px solid #d7e4ea;background:#fff;color:var(--blue)}.btn.secondary{background:transparent;color:#fff;border-color:#ffffff6c}.btn.soft{background:var(--soft)}
+main{padding:29px 0 65px}.card{border-radius:19px;border:1px solid var(--line);background:#fff;box-shadow:var(--shadow);padding:clamp(22px,3vw,34px)}.section{margin-top:24px}
+h2{font-size:1.55rem;letter-spacing:-.025em;color:var(--blue);margin:0 0 14px}h3{font-size:1.05rem;color:var(--blue);margin:0 0 7px}p{margin:0 0 13px}p:last-child{margin:0}
+.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:19px}.metric{padding:17px;border:1px solid #cfe2e9;background:linear-gradient(#f8fcfd,#eef7fa);border-radius:15px;min-height:112px}.metric strong{display:block;font-size:1.68rem;color:var(--blue);line-height:1.1;margin-bottom:9px}.metric span,.small{font-size:.9rem;color:var(--muted)}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}.point{margin-bottom:14px}.point:last-child{margin:0}
+.note{padding:16px 19px;border-left:4px solid var(--blue);background:var(--soft);border-radius:0 12px 12px 0;margin-top:18px}
+.bar{display:flex;align-items:center;gap:10px;margin:13px 0}.bar span{width:145px;flex:0 0 145px;font-size:.9rem}.bar i{display:block;height:19px;border-radius:5px;background:#9eb4c2;max-width:100%}.bar i.after{background:#075985}.bar b{min-width:45px;font-size:.9rem;font-variant-numeric:tabular-nums}.bars{margin-top:13px}.cite{padding:16px;background:#f4f7f8;border:1px solid var(--line);border-radius:12px;white-space:pre-wrap;overflow-wrap:anywhere;font: .86rem/1.6 ui-monospace,Consolas,monospace}
+footer{border-top:1px solid var(--line);padding:27px 0 40px;color:var(--muted);font-size:.9rem}
+@media(max-width:820px){.metrics{grid-template-columns:1fr 1fr}.grid2{grid-template-columns:1fr}.logos{position:static;width:max-content;max-width:100%;margin:0 0 18px auto}.hero{padding-top:34px}}
+@media(max-width:520px){.wrap{width:min(100% - 26px,1120px)}.metrics{grid-template-columns:1fr}.btn{width:100%}.bar span{width:112px;flex-basis:112px}.logos{gap:5px;padding:6px}.logos .ridita{height:44px}.logos .lab{height:32px}.logos .ita{height:27px}}
+</style></head>
+<body><header class="hero"><div class="wrap"><div class="logos" aria-label="Conference and institutional logos"><img class="ridita" src="https://xcongresointernacionalridita.ing.unlp.edu.ar/Logo-RIDITA.png" alt="RIDITA logo"><img class="lab" src="https://orbolato.github.io/Strategic-DCB-RL/assets/labgeta-logo.png" alt="LABGETA logo"><img class="ita" src="https://orbolato.github.io/Strategic-DCB-RL/assets/ita-logo.png" alt="ITA logo"></div>
+<div class="kicker">Accepted conference paper · X Congreso Internacional de la RIDITA · 2026</div>
+<h1>A methodological procedure and supporting tool for dedicated urban air mobility corridor design in the São Paulo metropolitan region</h1>
+<p class="authors">Lucas Orbolato Carvalho · Jaqueline Fonseca Rodrigues · Mayara Condé Rocha Murça · Daniel Alberto Pamplona · Marcelo Xavier Guterres</p><p class="affil">Instituto Tecnológico de Aeronáutica (ITA), Brazil · SIGMA-Sky Project</p>
+<div class="takeaway">Refinement reduced the proportion of modeled UAM corridor volume intersecting other airspace structures from <strong>23.7% to 18.2%</strong>, but substantial airport-flow exposure remained near Congonhas.</div>
+<div class="actions">
+<a class="btn" href="https://projetosigmasky.github.io/uam_airspace/" target="_blank" rel="noopener noreferrer">Open UAM dashboard</a>
+<a class="btn secondary" href="https://github.com/projetosigmasky/uam_airspace/releases/tag/ridita-2026.2" target="_blank" rel="noopener noreferrer">Software release</a>
+<a class="btn secondary" href="https://github.com/projetosigmasky/uam_airspace/tree/main/ridita2026" target="_blank" rel="noopener noreferrer">Verification scripts</a>
+<a class="btn secondary" href="mailto:orbolatoloc@fab.mil.br?subject=RIDITA%202026%20UAM%20corridor%20paper">Contact author</a>
+</div></div></header>
+<main><div class="wrap">
+<section class="card"><h2>At a glance</h2><p>A reproducible workflow for strategically designing and verifying dedicated UAM corridors in the São Paulo Metropolitan Region, including existing helicopter routes, aircraft routes and empirical airport-flow envelopes.</p>
+<div class="metrics">
+<div class="metric"><strong>23.7% → 18.2%</strong><span>Volume intersecting any modeled structure (six vertiports)</span></div>
+<div class="metric"><strong>8.1% → 3.1%</strong><span>Volume overlapping Aircraft Special Routes (REA)</span></div>
+<div class="metric"><strong>14.0% / 2.0%</strong><span>SBSP overlap, radial versus clustered-stream envelope</span></div>
+<div class="metric"><strong>6 / 12</strong><span>Vertiport-network sizes examined</span></div>
+</div></section>
+<section class="section grid2"><article class="card"><h2>Study summary</h2>
+<p>The study develops dedicated corridors for six- and twelve-vertiport networks in the São Paulo Metropolitan Region using a reproducible workflow and supporting 2D/3D dashboard. Nominal corridors are 0.5 NM wide and 1,000 ft high, centered at 4,000 ft MSL. Selected waypoints are displaced laterally and lowered to 3,000 ft to reduce geometric interference with existing airspace structures.</p>
+<p>Volumetric analysis indicates that refinement lowers the total intersection share from 23.7% to 18.2%, primarily due to a reduction in REA overlap. The radial Congonhas (SBSP) flow envelope nevertheless contains 14.0% of refined corridor volume; the more localized clustered-stream envelope yields 2.0%. These findings motivate joint evaluation of volumetric intersection and observed flight-track exposure.</p>
+</article><article class="card"><h2>Method in brief</h2>
+<div class="point"><h3>Vertiports and routes</h3><p>Six and twelve vertiports plus the three airports are connected using shortest paths on the REH graph. Demand uses Metrô OD and ANAC airport passenger inputs.</p></div>
+<div class="point"><h3>Geometry</h3><p>Two opposite-direction lanes, nominally 0.50 NM in total width and 1,000 ft high. In identified conflict regions, corridors are displaced and lowered.</p></div>
+<div class="point"><h3>Empirical verification</h3><p>December 2022 Flightradar24 tracks support radial and clustered-stream airport-flow envelopes at SBSP and SBGR.</p></div>
+<div class="point"><h3>Dashboard workflow</h3><p>Analyst-selected adjustments are checked visually in 2D/3D and quantified by automated 50-m-cell volumetric overlap analysis.</p></div>
+</article></section>
+<section class="section card"><h2>Selected results</h2><div class="grid2">
+<div><h3>Volume overlapping modeled structures</h3><p class="small">Six-vertiport network; share of corridor volume before and after refinement.</p>
+<div class="bars">
+<div class="bar"><span>Any volume, initial</span><i style="width:47.4%"></i><b>23.7%</b></div>
+<div class="bar"><span>Any volume, refined</span><i class="after" style="width:36.4%"></i><b>18.2%</b></div>
+<div class="bar"><span>REA, initial</span><i style="width:16.2%"></i><b>8.1%</b></div>
+<div class="bar"><span>REA, refined</span><i class="after" style="width:6.2%"></i><b>3.1%</b></div>
+</div></div>
+<div><h3>Why empirical flow representation matters</h3><p>The same refined network intersects 14.0% of the radial SBSP envelope by corridor volume, but only 2.0% of its clustered-stream representation. Small stream-envelope volume does not necessarily mean low operational exposure: a narrow approach path can carry many movements.</p><p>The six-vertiport refinement altered 16 distinct waypoints (220 of 930 point records) and increased total track length by just 0.11%.</p></div>
+</div></section>
+<section class="section card"><h2>Interactive UAM Airspace Dashboard</h2>
+<p>The SIGMA-Sky UAM Airspace Dashboard is the supporting tool described in the paper. It provides an interactive 2D map and 3D visualization, CSV import/export, route/waypoint editing, parallel lane generation and volume-overlap analysis. The tool supports analyst decisions; it does not automatically optimize corridor placements.</p>
+<div class="links">
+<a class="btn soft" href="https://projetosigmasky.github.io/uam_airspace/" target="_blank" rel="noopener noreferrer">Launch dashboard</a>
+<a class="btn soft" href="https://github.com/projetosigmasky/uam_airspace" target="_blank" rel="noopener noreferrer">Dashboard source</a>
+<a class="btn soft" href="https://github.com/projetosigmasky/uam_airspace/tree/main/ridita2026" target="_blank" rel="noopener noreferrer">Reproduce results</a>
+<a class="btn soft" href="https://github.com/projetosigmasky/uam_airspace/releases/tag/ridita-2026.2" target="_blank" rel="noopener noreferrer">Release ridita-2026.2</a>
+</div>
+<div class="note"><strong>Reproducibility:</strong> Derived REH/REA airspace volumes, flight-envelope data, dashboard code and verification scripts are public in the tool repository. The frozen scenario CSVs are available on request; the original Flightradar24 tracks are licensed and are not redistributed. The paper cites the tagged release <a href="https://github.com/projetosigmasky/uam_airspace/releases/tag/ridita-2026.2">ridita-2026.2</a>, not the changing live dashboard.</div></section>
+<section class="section grid2">
+<article class="card"><h2>Interpretation</h2><p>A geometrically plausible UAM network can still intersect historical conventional traffic paths. Geometric overlap does not imply simultaneous loss of aircraft separation or demonstrate that the configuration is operationally safe.</p><p>The REH-reference comparison also changes corridor width and lateral geometry. It is not a pure altitude-only controlled experiment.</p></article>
+<article class="card"><h2>Limitations and next steps</h2><p>Limitations include reduced vertical spacing, route-band approximations, mean terrain, RNP-based widths without containment analysis and one month of historical flight records.</p><p>A hybrid corridor design near SBSP will be evaluated, with future BlueSky simulations addressing demand–capacity balancing and deconfliction.</p></article>
+</section>
+<section class="section card"><h2>Conference and citation</h2><p><strong>X Congreso Internacional de la RIDITA</strong> · La Plata, Argentina · November 16–18, 2026. Accepted manuscript; no proceedings DOI is claimed.</p>
+<div class="cite">@inproceedings{Carvalho2026RIDITA,
+  author    = {Carvalho, Lucas Orbolato and Rodrigues, Jaqueline Fonseca and Murça, Mayara Condé Rocha and Pamplona, Daniel Alberto and Guterres, Marcelo Xavier},
+  title     = {A methodological procedure and supporting tool for dedicated urban air mobility corridor design in the São Paulo metropolitan region},
+  booktitle = {X Congreso Internacional de la RIDITA},
+  year      = {2026},
+  address   = {La Plata, Argentina}
+}</div><p class="small">The site describes a preliminary strategic design and does not claim operational certification.</p>
+</section></div></main>
+<footer><div class="wrap"><p>SIGMA-Sky Project (TED No. 1525720240005-003882/2024, SAC–ITA). Thanks to DECEA, ANAC and Flightradar24 for data.</p><p><a href="https://orbolato.github.io/">Author homepage</a> · <a href="https://orbolato.github.io/publications/">Publications</a> · <a href="https://projetosigmasky.github.io/uam_airspace/">UAM Airspace Dashboard</a></p></div></footer>
+</body></html>
