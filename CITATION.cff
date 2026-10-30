@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+message: >-
+  Cite the RIDITA conference paper for research results. Also cite the tagged
+  ridita-2026.2 dashboard release if using the software or derived data.
+type: software
+title: "RIDITA 2026 dedicated UAM corridor design paper page"
+authors:
+  - family-names: Carvalho
+    given-names: Lucas Orbolato
+    orcid: "https://orcid.org/0000-0002-8402-5832"
+  - family-names: Rodrigues
+    given-names: Jaqueline Fonseca
+  - family-names: Murça
+    given-names: Mayara Condé Rocha
+  - family-names: Pamplona
+    given-names: Daniel Alberto
+  - family-names: Guterres
+    given-names: Marcelo Xavier
+url: "https://orbolato.github.io/ridita-uam-corridor-design/"
+preferred-citation:
+  type: conference-paper
+  title: "A methodological procedure and supporting tool for dedicated urban air mobility corridor design in the São Paulo metropolitan region"
+  authors:
+    - family-names: Carvalho
+      given-names: Lucas Orbolato
+    - family-names: Rodrigues
+      given-names: Jaqueline Fonseca
+    - family-names: Murça
+      given-names: Mayara Condé Rocha
+    - family-names: Pamplona
+      given-names: Daniel Alberto
+    - family-names: Guterres
+      given-names: Marcelo Xavier
+  collection-title: "X Congreso Internacional de la RIDITA"
+  year: 2026
